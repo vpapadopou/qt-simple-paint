@@ -12,3 +12,11 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    std::cout << "called1" << std::endl;
+
+    ui->canvasWidget->test1();
+
+}
