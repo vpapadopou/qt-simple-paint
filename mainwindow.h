@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <QMainWindow>
+#include <QAbstractButton>
 #include "canvaswidget.h"
 
 namespace Ui {
@@ -18,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void colorSelectGroup_clicked(QAbstractButton* button);
 
 private:
     Ui::MainWindow *ui;

@@ -19,7 +19,7 @@ public:
     virtual void paintEvent(QPaintEvent *event);
     virtual void resizeEvent(QResizeEvent *event);
 
-    void test1();
+    void setColor(QColor selectedColor);
 
 private:
     //Canvas

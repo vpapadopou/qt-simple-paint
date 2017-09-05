@@ -16,8 +16,8 @@ CanvasWidget::~CanvasWidget()
 
 }
 
-void CanvasWidget::test1() {
-    std::cout << "yup" << std::endl;
+void CanvasWidget::setColor(QColor selectedColor) {
+    currentColor = selectedColor;
 }
 
 //=========================================================
