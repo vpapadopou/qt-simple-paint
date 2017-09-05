@@ -20,6 +20,8 @@ public:
     virtual void resizeEvent(QResizeEvent *event);
 
     void setColor(QColor selectedColor);
+    void setBrushSize(int selectedSize);
+    void clearAll();
 
 private:
     //Canvas
@@ -30,6 +32,8 @@ private:
     QPoint latestPoint;
     //Color variable
     QColor currentColor;
+    //Brush size variable
+    int brushSize;
 };
 
 #endif // CANVASWIDGET_H

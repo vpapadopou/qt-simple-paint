@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //Set number button group listener
     ui->colorSelectGroup->connect(ui->colorSelectGroup, SIGNAL(buttonClicked(QAbstractButton*)),
                              this, SLOT(colorSelectGroup_clicked(QAbstractButton*)));
+    //Set default brush size label
+    ui->brushSize_label->setText("5");
 }
 
 MainWindow::~MainWindow()
@@ -17,6 +19,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//============================================================
+//Color method
+//============================================================
 void MainWindow::colorSelectGroup_clicked(QAbstractButton* button)
 {
 
@@ -47,4 +52,33 @@ void MainWindow::colorSelectGroup_clicked(QAbstractButton* button)
     //Call appropriate method
     ui->canvasWidget->setColor(selectedColor);
 
+}
+
+//============================================================
+//Slider methods
+//============================================================
+void MainWindow::on_brushSize_slider_sliderReleased()
+{
+    //Call appropriate method to set brush size
+    ui->canvasWidget->setBrushSize(ui->brushSize_slider->value());
+}
+
+void MainWindow::on_brushSize_slider_sliderMoved(int position)
+{
+    ui->brushSize_label->setText(QString::number(position));
+}
+
+void MainWindow::on_brushSize_slider_valueChanged(int value)
+{
+    ui->brushSize_label->setText(QString::number(value));
+    ui->canvasWidget->setBrushSize(value);
+
+}
+
+//============================================================
+//Various methods
+//============================================================
+void MainWindow::on_clearAll_clicked()
+{
+    ui->canvasWidget->clearAll();
 }

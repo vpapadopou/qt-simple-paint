@@ -2,12 +2,16 @@
 
 CanvasWidget::CanvasWidget(QWidget *parent) : QWidget(parent)
 {
-
+    //Set up image
     canvasImage = QImage(this->size(), QImage::Format_RGB32);
-
+    //Fill image with wite color as a canvas
     canvasImage.fill(Qt::white);
+    //Set drawing flag to false
     drawingActive = false;
+    //Set default color to black
     currentColor = Qt::black;
+    //Set default brush size to 5
+    brushSize = 5;
 }
 
 
@@ -16,8 +20,22 @@ CanvasWidget::~CanvasWidget()
 
 }
 
+//=========================================================
+//Drawing parameters methods
+//=========================================================
 void CanvasWidget::setColor(QColor selectedColor) {
     currentColor = selectedColor;
+}
+
+void CanvasWidget::setBrushSize(int selectedSize) {
+    brushSize = selectedSize;
+}
+
+void CanvasWidget::clearAll()
+{
+    canvasImage = QImage(this->size(), QImage::Format_RGB32);
+    canvasImage.fill(Qt::white);
+    this->update();
 }
 
 //=========================================================
@@ -43,7 +61,7 @@ void CanvasWidget::mouseMoveEvent(QMouseEvent *event)
         //Create a new painter
         QPainter painter(&canvasImage);
         //Set parameters according to settings (hard-coded for now)
-        painter.setPen(QPen(currentColor, 5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        painter.setPen(QPen(currentColor, brushSize, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
         //Draw line
         painter.drawLine(latestPoint, event->pos());
         //Save last point
