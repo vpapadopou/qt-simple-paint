@@ -4,6 +4,7 @@
 #include <iostream>
 #include <QMainWindow>
 #include <QAbstractButton>
+#include <QColorDialog>
 #include "canvaswidget.h"
 
 namespace Ui {
@@ -26,6 +27,8 @@ private slots:
     void on_brushSize_slider_valueChanged(int value);
 
     void on_clearAll_clicked();
+
+    void on_color_custom_clicked();
 
 private:
     Ui::MainWindow *ui;

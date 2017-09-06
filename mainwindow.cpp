@@ -95,3 +95,12 @@ void MainWindow::on_clearAll_clicked()
 {
     ui->canvasWidget->clearAll();
 }
+
+void MainWindow::on_color_custom_clicked()
+{
+    QColor customColor = QColorDialog::getColor(Qt::white, this, QString("Select a draw color"), QColorDialog::ShowAlphaChannel);
+
+    ui->colorIndicator->setStyleSheet("background-color: " + customColor.name());
+
+    ui->canvasWidget->setColor(customColor);
+}
