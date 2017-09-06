@@ -1,7 +1,6 @@
 #ifndef CANVASWIDGET_H
 #define CANVASWIDGET_H
 
-#include <iostream>
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
@@ -22,6 +21,8 @@ public:
     void setColor(QColor selectedColor);
     void setBrushSize(int selectedSize);
     void clearAll();
+
+    QImage getImage();
 
 private:
     //Canvas

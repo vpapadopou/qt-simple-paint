@@ -98,3 +98,11 @@ void CanvasWidget::resizeEvent(QResizeEvent *event)
     canvasImage = QImage(this->size(), QImage::Format_RGB32);
     canvasImage.fill(Qt::white);
 }
+
+//=========================================================
+//Various methods
+//=========================================================
+QImage CanvasWidget::getImage()
+{
+    return canvasImage;
+}

@@ -98,9 +98,22 @@ void MainWindow::on_clearAll_clicked()
 
 void MainWindow::on_color_custom_clicked()
 {
+    //Open custom color dialog
     QColor customColor = QColorDialog::getColor(Qt::white, this, QString("Select a draw color"), QColorDialog::ShowAlphaChannel);
-
+    //Update indicator and brush
     ui->colorIndicator->setStyleSheet("background-color: " + customColor.name());
-
     ui->canvasWidget->setColor(customColor);
+}
+
+void MainWindow::on_saveButton_clicked()
+{
+    QImage canvasImage = ui->canvasWidget->getImage();
+    //Get filename path (don't forget to add suffix at the end! .jpg for example)
+    QString filePath = QFileDialog::getSaveFileName(this, "SaveImage", "", "PNG (*.png);;JPEG (*.jpg *.jpeg)");
+    //Check if path is null
+    if (filePath == "") {
+        return;
+    }
+    //Save image
+    canvasImage.save(filePath);
 }

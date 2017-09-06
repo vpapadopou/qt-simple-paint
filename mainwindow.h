@@ -1,10 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <iostream>
 #include <QMainWindow>
 #include <QAbstractButton>
 #include <QColorDialog>
+#include <QFileDialog>
 #include "canvaswidget.h"
 
 namespace Ui {
@@ -29,6 +29,8 @@ private slots:
     void on_clearAll_clicked();
 
     void on_color_custom_clicked();
+
+    void on_saveButton_clicked();
 
 private:
     Ui::MainWindow *ui;
