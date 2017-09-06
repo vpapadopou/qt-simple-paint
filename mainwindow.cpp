@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
                              this, SLOT(colorSelectGroup_clicked(QAbstractButton*)));
     //Set default brush size label
     ui->brushSize_label->setText("5");
+    //Set default color to color indicator
+    ui->colorIndicator->setStyleSheet("background-color: black");
 }
 
 MainWindow::~MainWindow()
@@ -28,26 +30,37 @@ void MainWindow::colorSelectGroup_clicked(QAbstractButton* button)
     QString buttonName = button->objectName();
 
     //Default color - black
-    QColor selectedColor = Qt::black;
+    QColor selectedColor;
 
     //Set color according to button name
     if (buttonName == "color_red") {
         selectedColor = Qt::red;
+        ui->colorIndicator->setStyleSheet("background-color: red");
     }
     else if (buttonName == "color_blue") {
         selectedColor = Qt::blue;
+        ui->colorIndicator->setStyleSheet("background-color: blue");
     }
     else if (buttonName == "color_green") {
-        selectedColor = Qt::green;
+        selectedColor = Qt::darkGreen;
+        ui->colorIndicator->setStyleSheet("background-color: green");
     }
     else if (buttonName == "color_yellow") {
         selectedColor = Qt::yellow;
+        ui->colorIndicator->setStyleSheet("background-color: yellow");
     }
     else if (buttonName == "color_grey") {
         selectedColor = Qt::gray;
+        ui->colorIndicator->setStyleSheet("background-color: gray");
     }
     else if (buttonName == "color_white") {
         selectedColor = Qt::white;
+        ui->colorIndicator->setStyleSheet("background-color: white");
+    }
+    else {
+        //Default color - black
+        selectedColor = Qt::black;
+        ui->colorIndicator->setStyleSheet("background-color: black");
     }
     //Call appropriate method
     ui->canvasWidget->setColor(selectedColor);
